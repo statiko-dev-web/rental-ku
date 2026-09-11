@@ -16,6 +16,7 @@ import { ServicesView } from './components/ServicesView';
 import { CarDetailsModal } from './components/CarDetailsModal';
 import { CmsDashboardView } from './components/CmsDashboardView';
 import { WhatsAppIcon } from './components/WhatsAppIcon';
+import { supabase } from './supabase';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
@@ -50,24 +51,37 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Fetch initial data from server
+  // Fetch initial data from Supabase Cloud with fallback
   useEffect(() => {
     async function loadData() {
       try {
-        const [carsRes, settingsRes] = await Promise.all([
-          fetch('/api/cars'),
-          fetch('/api/settings')
-        ]);
-        if (carsRes.ok) {
-          const carsData = await carsRes.json();
-          if (Array.isArray(carsData) && carsData.length > 0) {
-            setCars(carsData);
+        const { data, error } = await supabase
+          .from('site_data')
+          .select('id, content');
+
+        if (!error && data && data.length > 0) {
+          const carsRow = data.find((row: any) => row.id === 'cars');
+          const settingsRow = data.find((row: any) => row.id === 'settings');
+
+          if (carsRow && Array.isArray(carsRow.content) && carsRow.content.length > 0) {
+            setCars(carsRow.content);
           }
-        }
-        if (settingsRes.ok) {
-          const settingsData = await settingsRes.json();
-          if (settingsData && settingsData.phone) {
-            setSettings(settingsData);
+          if (settingsRow && settingsRow.content && settingsRow.content.phone) {
+            setSettings(settingsRow.content);
+          }
+        } else {
+          // If first time, try fallback
+          const [carsRes, settingsRes] = await Promise.all([
+            fetch('/api/cars').catch(() => null),
+            fetch('/api/settings').catch(() => null)
+          ]);
+          if (carsRes && carsRes.ok) {
+            const carsData = await carsRes.json();
+            if (Array.isArray(carsData) && carsData.length > 0) setCars(carsData);
+          }
+          if (settingsRes && settingsRes.ok) {
+            const settingsData = await settingsRes.json();
+            if (settingsData && settingsData.phone) setSettings(settingsData);
           }
         }
       } catch (err) {
@@ -80,55 +94,63 @@ export default function App() {
     loadData();
   }, []);
 
-  // CRUD Handlers connected to server API
-  const handleSaveCar = async (carToSave: Car, isNew: boolean) => {
-    if (isNew) {
-      const res = await fetch('/api/cars', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(carToSave),
-      });
-      if (!res.ok) throw new Error('Failed to create car');
-      const savedCar = await res.json();
-      setCars((prev) => [savedCar, ...prev]);
-    } else {
-      const res = await fetch(`/api/cars/${carToSave.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(carToSave),
-      });
-      if (!res.ok) throw new Error('Failed to update car');
-      const updatedCar = await res.json();
-      setCars((prev) => prev.map((c) => (c.id === updatedCar.id ? updatedCar : c)));
+  // Helper to persist to Supabase
+  const syncToSupabase = async (newCars: Car[], newSettings?: SiteSettings) => {
+    try {
+      if (newCars) {
+        await supabase.from('site_data').upsert({ id: 'cars', content: newCars });
+      }
+      if (newSettings) {
+        await supabase.from('site_data').upsert({ id: 'settings', content: newSettings });
+      }
+    } catch (e) {
+      console.error('Supabase sync error:', e);
     }
   };
 
+  // CRUD Handlers connected to Supabase
+  const handleSaveCar = async (carToSave: Car, isNew: boolean) => {
+    let nextCars: Car[];
+    if (isNew) {
+      nextCars = [carToSave, ...cars];
+    } else {
+      nextCars = cars.map((c) => (c.id === carToSave.id ? carToSave : c));
+    }
+    setCars(nextCars);
+    await syncToSupabase(nextCars);
+
+    fetch('/api/cars', {
+      method: isNew ? 'POST' : 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(carToSave),
+    }).catch(() => {});
+  };
+
   const handleDeleteCar = async (id: string) => {
-    const res = await fetch(`/api/cars/${id}`, {
-      method: 'DELETE',
-    });
-    if (!res.ok) throw new Error('Failed to delete car');
-    setCars((prev) => prev.filter((c) => c.id !== id));
+    const nextCars = cars.filter((c) => c.id !== id);
+    setCars(nextCars);
+    await syncToSupabase(nextCars);
+
+    fetch(`/api/cars/${id}`, { method: 'DELETE' }).catch(() => {});
   };
 
   const handleSaveSettings = async (newSettings: SiteSettings) => {
-    const res = await fetch('/api/settings', {
+    setSettings(newSettings);
+    await syncToSupabase(cars, newSettings);
+
+    fetch('/api/settings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newSettings),
-    });
-    if (!res.ok) throw new Error('Failed to save settings');
-    const updated = await res.json();
-    setSettings(updated);
+    }).catch(() => {});
   };
 
   const handleResetAll = async () => {
-    const res = await fetch('/api/reset', {
-      method: 'POST',
-    });
-    if (!res.ok) throw new Error('Failed to reset');
     setCars(DEFAULT_CARS);
     setSettings(DEFAULT_SETTINGS);
+    await syncToSupabase(DEFAULT_CARS, DEFAULT_SETTINGS);
+
+    fetch('/api/reset', { method: 'POST' }).catch(() => {});
   };
 
   // Dedicated Full-Page CMS Admin View
