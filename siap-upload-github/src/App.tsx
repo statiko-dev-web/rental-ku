@@ -25,28 +25,13 @@ export default function App() {
   const [selectedCarForDetails, setSelectedCarForDetails] = useState<Car | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Sync hash routing for #admin
-  useEffect(() => {
-    if (window.location.hash === '#admin') {
-      setCurrentPage('admin');
-    }
-    const handleHashChange = () => {
-      if (window.location.hash === '#admin') {
-        setCurrentPage('admin');
-      } else if (currentPage === 'admin') {
-        setCurrentPage('home');
-      }
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [currentPage]);
-
+  // Pure state routing - do not auto-jump to admin on hash unless explicitly triggered
   const handleSetPage = (page: PageId) => {
     setCurrentPage(page);
-    if (page === 'admin') {
-      window.location.hash = '#admin';
-    } else if (window.location.hash === '#admin') {
-      history.replaceState(null, '', window.location.pathname);
+    if (page !== 'admin') {
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname);
+      }
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

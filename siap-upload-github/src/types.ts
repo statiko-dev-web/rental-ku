@@ -30,6 +30,8 @@ export interface SiteSettings {
   bannerCtaButton: string;
   heroImage?: string;
   bannerPenutupImage?: string;
+  adminUsername?: string;
+  adminPassword?: string;
 }
 
 export type PageId = 'home' | 'about' | 'fleet' | 'services' | 'admin';

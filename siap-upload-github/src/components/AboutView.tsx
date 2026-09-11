@@ -57,7 +57,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ settings }) => {
                 <a
                   id="about-call-btn"
                   href={`tel:${settings.phone}`}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#E11D2A] text-slate-900 hover:bg-[#E11D2A] hover:text-white transition-all text-xs sm:text-sm font-medium tracking-tight shadow-xs hover:shadow-md"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#E11D2A] text-slate-900 hover:bg-[#E11D2A] hover:text-white transition-all text-xs sm:text-sm font-medium tracking-tight shadow-xs hover:shadow-md cursor-pointer btn-shimmer"
                 >
                   <Phone className="w-4 h-4 text-[#E11D2A]" />
                   <span>Hubungi Kami: {settings.phone}</span>

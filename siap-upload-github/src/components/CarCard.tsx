@@ -15,29 +15,32 @@ export const CarCard: React.FC<CarCardProps> = ({ car, settings, onViewDetails }
   const waUrl = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(waMessage)}`;
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200/90 hover:border-red-200 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col p-5 sm:p-6 text-center group relative">
+    <div className="bg-white rounded-2xl border border-gray-200/90 hover:border-red-300/80 shadow-xs card-hover-elevate flex flex-col p-5 sm:p-6 text-center group relative overflow-hidden">
       
-      {/* Availability Badge */}
+      {/* Availability Badge with Lively Beacon Radar */}
       <div className="absolute top-3 right-3 flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full z-10">
         {isAvailable ? (
-          <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1 px-2 py-0.5 rounded-full">
-            <CheckCircle2 className="w-3 h-3" />
-            Tersedia
+          <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5 px-2.5 py-1 rounded-full shadow-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="beacon-radar absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="font-bold">Tersedia</span>
           </span>
         ) : (
-          <span className="bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1 px-2 py-0.5 rounded-full">
+          <span className="bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1 px-2.5 py-1 rounded-full">
             <AlertCircle className="w-3 h-3" />
             Booked
           </span>
         )}
       </div>
 
-      {/* Car Image Container */}
+      {/* Car Image Container with smooth zoom */}
       <div className="h-44 sm:h-48 w-full flex items-center justify-center overflow-hidden mb-3 pt-2">
         <img
           src={car.image}
           alt={car.name}
-          className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md rounded-lg"
+          className="max-h-full max-w-full object-contain img-zoom-hover drop-shadow-md rounded-lg"
           referrerPolicy="no-referrer"
           loading="lazy"
         />

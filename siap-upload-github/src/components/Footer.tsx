@@ -1,5 +1,5 @@
-import React from 'react';
-import { Phone, MapPin, Clock, Instagram, Facebook, Car as CarIcon, ShieldCheck } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Phone, MapPin, Clock, Instagram, Facebook, Car as CarIcon, ShieldCheck, Lock } from 'lucide-react';
 import { PageId, SiteSettings } from '../types';
 import { TikTokIcon } from './TikTokIcon';
 
@@ -10,6 +10,23 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ setCurrentPage, settings, onOpenCms }) => {
+  const clickCountRef = useRef(0);
+  const clickTimerRef = useRef<any>(null);
+
+  const handleSecretClick = () => {
+    clickCountRef.current += 1;
+    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+
+    if (clickCountRef.current >= 3) {
+      clickCountRef.current = 0;
+      onOpenCms();
+    } else {
+      clickTimerRef.current = setTimeout(() => {
+        clickCountRef.current = 0;
+      }, 800);
+    }
+  };
+
   return (
     <footer className="bg-[#141518] text-slate-300 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-12 lg:py-16">
@@ -166,32 +183,29 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage, settings, onOpen
         {/* Bottom Bar with Secret CMS Trigger */}
         <div className="mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div className="flex items-center gap-1.5">
-            <span>© 2026 {settings.companyName}. Seluruh hak cipta dilindungi undang-undang.</span>
-            
-            {/* Secret Button Trigger for CMS */}
-            <button
-              id="secret-cms-trigger-btn"
-              onClick={onOpenCms}
-              title="Akses Sistem CMS"
-              className="inline-block p-1 text-slate-600 hover:text-slate-300 transition-colors cursor-pointer rounded"
-              aria-label="Sistem CMS"
+            {/* Secret 3-Click Trigger on Copyright Text */}
+            <span
+              onClick={handleSecretClick}
+              className="select-none cursor-default transition-colors hover:text-slate-400"
+              title="© 2026 PT. Rentalku Mobil Indonesia"
             >
-              •
-            </button>
+              © 2026 {settings.companyName}. Seluruh hak cipta dilindungi undang-undang.
+            </span>
           </div>
 
           <div className="flex items-center space-x-3 sm:space-x-4">
             <span className="hover:text-slate-400 cursor-pointer">Syarat & Ketentuan</span>
             <span>|</span>
             <span className="hover:text-slate-400 cursor-pointer">Kebijakan Privasi</span>
-            <span>|</span>
+            
+            {/* Ultra-subtle stealth lock dot at the very end */}
             <button
-              id="footer-admin-cms-link"
               onClick={onOpenCms}
-              className="hover:text-[#E11D2A] text-slate-500 font-medium transition-colors cursor-pointer flex items-center gap-1"
-              title="Masuk ke Halaman Dashboard CMS"
+              className="opacity-15 hover:opacity-100 transition-opacity p-1 text-slate-600 hover:text-[#E11D2A] cursor-pointer"
+              title="Portal"
+              aria-label="Portal"
             >
-              <span>Panel Admin CMS</span>
+              <Lock className="w-2.5 h-2.5" />
             </button>
           </div>
         </div>

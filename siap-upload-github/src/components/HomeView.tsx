@@ -220,7 +220,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
               <a
                 id="hero-call-btn"
                 href={`tel:${settings.phone}`}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border-2 border-[#E11D2A] text-slate-900 font-medium text-sm tracking-tight shadow-xl hover:bg-[#E11D2A] hover:text-white transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border-2 border-[#E11D2A] text-slate-900 font-medium text-sm tracking-tight shadow-xl hover:bg-[#E11D2A] hover:text-white transition-all transform hover:-translate-y-0.5 cursor-pointer btn-shimmer"
               >
                 <Phone className="w-4 h-4 text-[#E11D2A]" />
                 <span>Hubungi Kami: {settings.phone}</span>
@@ -576,14 +576,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
               {visibleServices.map((service) => (
                 <div
                   key={service.id}
-                  className="bg-white rounded-2xl border-2 border-red-400 p-6 flex flex-col justify-between text-center h-full shadow-xs hover:shadow-md transition-shadow"
+                  className="bg-white rounded-2xl border-2 border-red-400 p-6 flex flex-col justify-between text-center h-full shadow-xs card-hover-elevate group overflow-hidden"
                 >
                   <div className="space-y-4">
                     <div className="h-32 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center">
                       <img
                         src={service.image}
                         alt={service.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover img-zoom-hover"
                         referrerPolicy="no-referrer"
                       />
                     </div>

@@ -16,6 +16,8 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   bannerCtaButton: 'Hubungi Kami : 082321241633',
   heroImage: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&auto=format&fit=crop&q=85',
   bannerPenutupImage: '/banner-penutup.webp',
+  adminUsername: 'admin123',
+  adminPassword: 'admin123',
 };
 
 export const DEFAULT_CARS: Car[] = [

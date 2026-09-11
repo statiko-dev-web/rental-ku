@@ -23,7 +23,10 @@ import {
   Layers,
   Sparkles,
   Info,
-  X
+  X,
+  Key,
+  ShieldCheck,
+  User,
 } from 'lucide-react';
 import { Car, SiteSettings, PageId } from '../types';
 
@@ -54,8 +57,13 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
 
-  // Dashboard Tabs: 'cars' | 'hero-banner' | 'contact' | 'maps'
-  const [activeTab, setActiveTab] = useState<'cars' | 'hero-banner' | 'contact' | 'maps'>('cars');
+  // Dashboard Tabs: 'cars' | 'hero-banner' | 'contact' | 'maps' | 'security'
+  const [activeTab, setActiveTab] = useState<'cars' | 'hero-banner' | 'contact' | 'maps' | 'security'>('cars');
+
+  // Change Credentials State
+  const [newAdminUser, setNewAdminUser] = useState(settings.adminUsername || 'admin123');
+  const [newAdminPass, setNewAdminPass] = useState(settings.adminPassword || 'admin123');
+  const [confirmAdminPass, setConfirmAdminPass] = useState(settings.adminPassword || 'admin123');
   
   // Fleet search & filter
   const [searchQuery, setSearchQuery] = useState('');
@@ -89,13 +97,16 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (username.trim() === 'admin123' && password.trim() === 'admin123') {
+    const validUsername = settings.adminUsername || 'admin123';
+    const validPassword = settings.adminPassword || 'admin123';
+
+    if (username.trim() === validUsername && password.trim() === validPassword) {
       setIsAuthenticated(true);
       sessionStorage.setItem('rentalku_admin_auth', 'true');
       setLoginError('');
       showNotify('Selamat datang! Login Administrator berhasil.');
     } else {
-      setLoginError('Username atau password tidak sesuai! Gunakan: admin123');
+      setLoginError('Username atau password tidak sesuai!');
     }
   };
 
@@ -329,7 +340,11 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
           </form>
 
           <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800/80 text-[11px] text-slate-400 text-center">
-            Kredensial Default: Username <strong className="text-slate-200">admin123</strong> | Password <strong className="text-slate-200">admin123</strong>
+            {settings.adminUsername && settings.adminUsername !== 'admin123' ? (
+              <span>Sistem dilindungi Kredensial Kustom Administrator</span>
+            ) : (
+              <span>Kredensial Bawaan: Username <strong className="text-slate-200">admin123</strong> | Password <strong className="text-slate-200">admin123</strong></span>
+            )}
           </div>
         </div>
 
@@ -527,6 +542,18 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
             >
               <MapPin className="w-4 h-4" />
               <span>Google Maps & Alamat</span>
+            </button>
+
+            <button
+              onClick={() => { setActiveTab('security'); setShowCarForm(false); }}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                activeTab === 'security'
+                  ? 'bg-[#E11D2A] text-white shadow-lg shadow-red-900/40'
+                  : 'bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800'
+              }`}
+            >
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>Ganti Akun & Password</span>
             </button>
           </div>
 
@@ -1427,6 +1454,136 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
               >
                 <Save className="w-4 h-4" />
                 <span>Simpan Pengaturan Peta & Alamat</span>
+              </button>
+            </div>
+          </form>
+        )}
+
+        {/* TAB 5: GANTI AKUN & PASSWORD ADMIN */}
+        {activeTab === 'security' && (
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if (!newAdminUser.trim() || !newAdminPass.trim()) {
+                showNotify('Username dan Password tidak boleh kosong!', 'error');
+                return;
+              }
+              if (newAdminPass !== confirmAdminPass) {
+                showNotify('Konfirmasi password baru tidak cocok!', 'error');
+                return;
+              }
+              setIsSaving(true);
+              try {
+                const updatedSettings: SiteSettings = {
+                  ...settings,
+                  adminUsername: newAdminUser.trim(),
+                  adminPassword: newAdminPass.trim(),
+                };
+                await onSaveSettings(updatedSettings);
+                showNotify('Kredensial Admin berhasil diperbarui! Simpan baik-baik data login baru Anda.');
+              } catch (err: any) {
+                showNotify('Gagal menyimpan kredensial: ' + err.message, 'error');
+              } finally {
+                setIsSaving(false);
+              }
+            }}
+            className="bg-[#151923] border border-slate-800 rounded-2xl p-5 sm:p-7 space-y-6 shadow-xl"
+          >
+            <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-white">Keamanan & Kredensial Administrator</h3>
+                <p className="text-xs text-slate-400">Ubah Username dan Password untuk login ke panel CMS ini agar aman dari orang lain.</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Current Status */}
+              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                <span className="text-xs font-bold text-slate-300 flex items-center gap-2">
+                  <User className="w-4 h-4 text-emerald-400" />
+                  Status Kredensial Saat Ini
+                </span>
+                <div className="space-y-1.5 text-xs">
+                  <div className="flex justify-between py-1 border-b border-slate-800">
+                    <span className="text-slate-500">Username:</span>
+                    <span className="font-mono font-bold text-slate-200">{settings.adminUsername || 'admin123'}</span>
+                  </div>
+                  <div className="flex justify-between py-1">
+                    <span className="text-slate-500">Password:</span>
+                    <span className="font-mono text-slate-400">•••••••• (Tersimpan aman di Supabase)</span>
+                  </div>
+                </div>
+                <div className="text-[11px] text-emerald-400/90 bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-800/40">
+                  Perubahan tersimpan langsung ke Cloud Supabase dan aktif di semua browser/device.
+                </div>
+              </div>
+
+              {/* Form Input */}
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                    Username Admin Baru
+                  </label>
+                  <div className="relative">
+                    <User className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
+                    <input
+                      type="text"
+                      value={newAdminUser}
+                      onChange={(e) => setNewAdminUser(e.target.value)}
+                      placeholder="Contoh: bosrental / admin_rentalku"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#E11D2A]"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                    Password Admin Baru
+                  </label>
+                  <div className="relative">
+                    <Key className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
+                    <input
+                      type="text"
+                      value={newAdminPass}
+                      onChange={(e) => setNewAdminPass(e.target.value)}
+                      placeholder="Masukkan password baru"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#E11D2A]"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                    Ulangi Password Baru
+                  </label>
+                  <div className="relative">
+                    <Key className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
+                    <input
+                      type="text"
+                      value={confirmAdminPass}
+                      onChange={(e) => setConfirmAdminPass(e.target.value)}
+                      placeholder="Ulangi password baru persis sama"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#E11D2A]"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-end pt-4 border-t border-slate-800">
+              <button
+                type="submit"
+                disabled={isSaving}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-lg shadow-emerald-900/30 transition-all cursor-pointer"
+              >
+                <Save className="w-4 h-4" />
+                <span>Simpan Username & Password Baru</span>
               </button>
             </div>
           </form>
