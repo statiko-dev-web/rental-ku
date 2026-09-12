@@ -15,6 +15,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   bannerCtaTitle: 'Bersiaplah untuk pengalaman sewa mobil terbaik di kota Anda!',
   bannerCtaButton: 'Hubungi Kami : 082321241633',
   heroImage: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&auto=format&fit=crop&q=85',
+  fleetHeroImage: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=1920&auto=format&fit=crop&q=85',
   bannerPenutupImage: '/banner-penutup.webp',
   adminUsername: 'admin123',
   adminPassword: 'admin123',

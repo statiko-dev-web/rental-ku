@@ -29,6 +29,7 @@ export interface SiteSettings {
   bannerCtaTitle: string;
   bannerCtaButton: string;
   heroImage?: string;
+  fleetHeroImage?: string;
   bannerPenutupImage?: string;
   adminUsername?: string;
   adminPassword?: string;

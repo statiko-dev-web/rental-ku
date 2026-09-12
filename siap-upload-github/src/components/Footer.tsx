@@ -194,19 +194,18 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage, settings, onOpen
           </div>
 
           <div className="flex items-center space-x-3 sm:space-x-4">
-            <span className="hover:text-slate-400 cursor-pointer">Syarat & Ketentuan</span>
-            <span>|</span>
-            <span className="hover:text-slate-400 cursor-pointer">Kebijakan Privasi</span>
-            
-            {/* Ultra-subtle stealth lock dot at the very end */}
+            {/* Ultra-subtle stealth lock dot placed to the left of Syarat & Ketentuan */}
             <button
               onClick={onOpenCms}
-              className="opacity-15 hover:opacity-100 transition-opacity p-1 text-slate-600 hover:text-[#E11D2A] cursor-pointer"
+              className="opacity-20 hover:opacity-100 transition-opacity p-1 text-slate-600 hover:text-[#E11D2A] cursor-pointer"
               title="Portal"
               aria-label="Portal"
             >
-              <Lock className="w-2.5 h-2.5" />
+              <Lock className="w-3 h-3" />
             </button>
+            <span className="hover:text-slate-400 cursor-pointer">Syarat & Ketentuan</span>
+            <span>|</span>
+            <span className="hover:text-slate-400 cursor-pointer">Kebijakan Privasi</span>
           </div>
         </div>
 

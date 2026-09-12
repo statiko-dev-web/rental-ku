@@ -20,7 +20,7 @@ export const FleetView: React.FC<FleetViewProps> = ({ cars, settings, onViewDeta
         {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img
-            src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=1920&auto=format&fit=crop&q=85"
+            src={settings.fleetHeroImage || "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=1920&auto=format&fit=crop&q=85"}
             alt="Armada Mobil Rental-ku Indonesia"
             className="w-full h-full object-cover object-[75%_center] lg:object-[80%_center]"
             referrerPolicy="no-referrer"

@@ -1164,6 +1164,94 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
               </div>
             </div>
 
+            {/* FLEET HERO BACKGROUND SECTION (Halaman Daftar Mobil & Harga Sewa) */}
+            <div className="space-y-4 border-b border-slate-800 pb-8">
+              <div>
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <span>Foto Background Hero (Halaman Daftar Mobil & Harga Sewa)</span>
+                  <span className="text-[10px] bg-red-950 text-red-300 border border-red-800 px-2 py-0.5 rounded font-semibold">
+                    Halaman Fleet
+                  </span>
+                </h3>
+                <p className="text-xs text-slate-400 mt-1">
+                  Foto ini akan tampil sebagai latar belakang penuh di bagian paling atas halaman <strong>Daftar Mobil & Harga Sewa</strong> dengan gradasi gelap elegan di sisi teks.
+                </p>
+              </div>
+
+              {/* URL Input & Upload */}
+              <div className="space-y-3">
+                <label className="block text-xs font-semibold text-slate-300">
+                  URL Gambar Foto Hero Armada atau Upload File dari Komputer/HP
+                </label>
+                <div className="flex flex-col sm:flex-row gap-2.5">
+                  <input
+                    type="text"
+                    value={formSettings.fleetHeroImage || ''}
+                    onChange={(e) => setFormSettings({ ...formSettings, fleetHeroImage: e.target.value })}
+                    placeholder="https://images.unsplash.com/... atau gunakan tombol Upload Foto"
+                    className="flex-1 px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white focus:ring-2 focus:ring-[#E11D2A] focus:outline-none"
+                  />
+                  <label className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white text-xs font-bold cursor-pointer transition-colors shrink-0">
+                    <Upload className="w-4 h-4 text-[#E11D2A]" />
+                    <span>Upload Foto Armada</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => {
+                            setFormSettings({ ...formSettings, fleetHeroImage: reader.result as string });
+                            showNotify('Foto Hero Armada berhasil dimuat ke pratinjau! Klik Simpan untuk menerapkan.');
+                          };
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                    />
+                  </label>
+                </div>
+
+                {/* Pratinjau Fleet Hero */}
+                {formSettings.fleetHeroImage && (
+                  <div className="mt-3">
+                    <span className="block text-xs font-bold text-slate-400 mb-1.5">
+                      Pratinjau Live Hero Halaman Daftar Mobil & Harga Sewa:
+                    </span>
+                    <div className="relative rounded-2xl overflow-hidden border border-slate-700 h-44 sm:h-52 bg-slate-950 shadow-inner">
+                      <img
+                        src={formSettings.fleetHeroImage}
+                        alt="Preview Fleet Hero"
+                        className="w-full h-full object-cover object-[75%_center]"
+                      />
+                      {/* Gradient overlay */}
+                      <div 
+                        className="absolute inset-0" 
+                        style={{
+                          background: 'linear-gradient(to right, #121316 0%, rgba(18, 19, 22, 0.85) 45%, rgba(18, 19, 22, 0.35) 62%, transparent 75%, transparent 100%)'
+                        }}
+                      />
+                      <div className="absolute inset-y-0 left-6 flex flex-col justify-center max-w-sm pointer-events-none space-y-1">
+                        <span className="text-white text-lg sm:text-xl font-bold leading-tight">
+                          Sewa Rental Mobil? <br />
+                          <span className="text-white">Ya Di Rentalku Aja!</span>
+                        </span>
+                        <span className="text-white/80 text-xs">
+                          Berbagai Pilihan Mobil Untuk Kebutuhan mu
+                        </span>
+                        <div className="pt-2">
+                          <span className="inline-block px-3 py-1 rounded-full bg-white text-slate-900 border-2 border-[#E11D2A] text-[10px] font-bold">
+                            Hubungi Kami: {formSettings.phone}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
             {/* BANNER PENUTUP CTA */}
             <div className="space-y-4">
               <div>
