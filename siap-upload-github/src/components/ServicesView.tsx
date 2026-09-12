@@ -24,7 +24,7 @@ const SERVICE_TABS: ServiceTab[] = [
     id: 'family',
     name: 'Family Car',
     title: 'Family Car',
-    image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&auto=format&fit=crop&q=80',
+    image: '/services/family-car-800x600.webp',
     desc1: 'Salah satu hal terbaik tentang melakukan perjalanan bersama keluarga adalah memiliki rental mobil keluarga yang dapat diandalkan. Hal ini tidak hanya memastikan bahwa setiap orang dapat melakukan perjalanan bersama, tetapi juga membuat perjalanan menjadi lebih menyenangkan. Ada banyak alasan mengapa mobil keluarga lebih baik untuk bepergian dari pada transportasi lainnya.',
     desc2: 'Rental-ku adalah pilihan sempurna untuk perjalanan keluarga! Kami memiliki berbagai mobil keluarga untuk dipilih, sehingga Anda dapat menemukan yang sempurna untuk kebutuhan Anda. Mobil kami dapat diandalkan dan nyaman, dan kami menawarkan penawaran hebat untuk persewaan mobil keluarga.'
   },
@@ -32,7 +32,7 @@ const SERVICE_TABS: ServiceTab[] = [
     id: 'city',
     name: 'City Car',
     title: 'City Car',
-    image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&auto=format&fit=crop&q=80',
+    image: '/services/city-car-800x600.webp',
     desc1: 'Kami menyediakan layanan City Car untuk Anda membutuhkan kendaraan yang bisa digunakan untuk melewati jalan perkotaan yang padat atau macet, maka mobil city car bisa dipilih karena memiliki dimensi yang kecil, selain lebih nyaman dan efisien, untuk anda yg memiliki rencana kebeberapa titik tujuan dalam satu hari, Sewa Rental mobil memudahkan anda untuk berpergian dengan satu mobil yang sama.',
     desc2: 'Rental-ku Indonesia adalah pilihan sempurna untuk persewaan mobil City Car! Kami memiliki berbagai mobil untuk dipilih, sehingga Anda dapat menemukan yang sempurna untuk kebutuhan Anda. Mobil kami dapat diandalkan dan nyaman, kami menawarkan Harga Sewa Rental Mobil yang sangat kompetitive dan hemat.'
   },
@@ -40,7 +40,7 @@ const SERVICE_TABS: ServiceTab[] = [
     id: 'wedding',
     name: 'Wedding Car',
     title: 'Wedding Car',
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop&q=80',
+    image: '/services/wedding-car-800x600.webp',
     desc1: 'Pernikahan adalah sesuatu yang harus dihargai dan dicintai, karena itu adalah simbol cinta sejati dan pengabdian. Ini adalah hari yang dipenuhi dengan kebahagiaan, air mata kegembiraan, dan cinta yang akan bertahan seumur hidup. Jika Anda sedang mencari cara unik untuk membuat hari pernikahan Anda tak terlupakan, pertimbangkan untuk menyewa salah satu mobil kami yang luar biasa!',
     desc2: 'Armada kami terdapat beragam pilihan mobil untuk Wedding Car. Kami akan menyediakan mobil yang sempurna untuk kebutuhan pernikahan Anda, dan kami akan mengurus semua detailnya sehingga Anda dapat bersantai dan menikmati hari istimewa Anda.'
   },
@@ -48,7 +48,7 @@ const SERVICE_TABS: ServiceTab[] = [
     id: 'premium',
     name: 'Premium Car',
     title: 'Premium Car',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&auto=format&fit=crop&q=80',
+    image: '/services/premium-car-800x600.webp',
     desc1: 'Mobil-mobil Premium sering dianggap sebagai yang terbaik yang ditawarkan oleh Dealer2 mobil, dan dilengkapi dengan fitur-fitur yang tidak tersedia pada model lain. Seringkali, mobil-mobil ini ditujukan untuk keperluan mewah yang menginginkan yang terbaik dari yang terbaik.',
     desc2: 'Rental-ku Indonesia adalah layanan sewa mobil premium terbaik. Anda dapat memilih dari berbagai mobil kelas atas yang sempurna untuk segala kesempatan. Baik Anda sedang mencari mobil premium mewah untuk dibawa dalam perjalanan akhir pekan, atau membutuhkan kendaraan yang lebih besar untuk liburan keluarga Anda. Pengemudi kami yang berpengalaman akan mengurus semuanya sehingga Anda dapat bersantai dan menikmati perjalanan Anda dengan mobil premium pilihan Anda.'
   },
@@ -56,7 +56,7 @@ const SERVICE_TABS: ServiceTab[] = [
     id: 'pariwisata',
     name: 'Pariwisata',
     title: 'Pariwisata',
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800&auto=format&fit=crop&q=80',
+    image: '/services/pariwisata-800x600.webp',
     desc1: 'Tidak diragukan lagi bahwa wisata memang menyenangkan, tetapi akan lebih menyenangkan lagi jika Anda melakukannya bersama keluarga. Anda tidak hanya dapat menghabiskan waktu berkualitas bersama, tetapi Anda juga dapat mengalami hal-hal baru dan menjelajahi tempat-tempat baru.',
     desc2: 'Kami menyediakan mobil pariwisata yang tepat untuk rencana liburan keluarga Anda. Rental-ku Indonesia adalah layanan sewa mobil terbaik bagi wisatawan yang ingin menjelajahi kota baru tanpa khawatir mengemudi di area asing. Kami menawarkan pengemudi berpengalaman yang mengetahui daerah dengan baik, sehingga Anda dapat bersantai dan menikmati liburan Anda. Mobil kami juga tersedia dengan harga terjangkau, sehingga Anda dapat menghemat uang saat bepergian.'
   },
@@ -64,7 +64,7 @@ const SERVICE_TABS: ServiceTab[] = [
     id: 'perusahaan',
     name: 'Perusahaan',
     title: 'Perusahaan',
-    image: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&auto=format&fit=crop&q=80',
+    image: '/services/perusahaan-800x600.webp',
     desc1: 'Ketika Anda memulai bisnis, salah satu hal yang perlu Anda pertimbangkan adalah transportasi. Rental-ku Indonesia menawarkan berbagai pilihan mobil yang tersedia untuk disewakan. Kami menyediakan berbagai pilihan type kontrak untuk perusahaan, seperti Lepas kunci atau dengan Driver.',
     desc2: 'Dengan memilih Sewa Rental Mobil untuk Perusahaan, anda terhindar dari biaya2 maintenance, karena biaya2 maintenance akan di tanggung oleh kami. Rental-ku Indonesia sendiri sudah berbasis PT, (PT. RENTALKU MOBIL INDONESIA). Kontrak Perusahaan yang harus berbasis PT bisa dengan tenang bekerja sama bersama kami.'
   },
@@ -72,7 +72,7 @@ const SERVICE_TABS: ServiceTab[] = [
     id: 'event',
     name: 'Event Car',
     title: 'Event Car',
-    image: 'https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?w=800&auto=format&fit=crop&q=80',
+    image: '/services/event-car-800x600.webp',
     desc1: 'Dalam menyelenggarakan acara, salah satu elemen terpenting adalah memastikan bahwa para tamu dapat pergi ke dan dari tempat tersebut tanpa masalah. Di sinilah layanan transportasi masuk, karena kami dapat membantu mempermudah proses bagi semua orang yang terlibat. Dengan menyediakan layanan antar-jemput atau mengatur transportasi, penyelenggara dapat memastikan bahwa para tamu tidak perlu khawatir untuk bepergian.',
     desc2: 'Jika Anda sedang mencari layanan sewa mobil tanpa repot untuk event Anda berikutnya, tidak perlu mencari yang lain selain Rental-ku Indonesia! Kami menyediakan rental mobil yang dilengkapi dengan Driver yang Profesional, Plus harga kompetitif kami memudahkan anggaran untuk transportasi acara Anda.'
   }
