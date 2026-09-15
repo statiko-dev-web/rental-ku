@@ -34,23 +34,16 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage, settings, onOpen
           
           {/* Col 1: Brand & Bio */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-white/5">
-                <CarIcon className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <div className="text-xl font-black tracking-tight text-white">
-                  <span>Rental-</span>
-                  <span className="text-[#E11D2A]">ku</span>
-                </div>
-                <span className="block text-[9px] uppercase font-bold tracking-[0.2em] text-slate-400">
-                  INDONESIA
-                </span>
-              </div>
+            <div className="flex items-center">
+              <img
+                src="/logo/logo-footer.svg"
+                alt="Kerabat Rentcar Logo"
+                className="h-16 sm:h-20 w-auto object-contain"
+              />
             </div>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Penyedia layanan transportasi dan rental mobil terpercaya di Indonesia. Solusi perjalanan nyaman, armada prima, driver profesional, dan harga terjangkau.
+              Penyedia layanan transportasi dan sewa rental mobil resmi terpercaya di Kota Jambi. Solusi perjalanan dinas, wisata, dan keluarga dengan armada prima bergaransi nyaman.
             </p>
 
             <div className="pt-2 flex items-center gap-2 text-xs text-slate-400">
@@ -187,7 +180,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage, settings, onOpen
             <span
               onClick={handleSecretClick}
               className="select-none cursor-default transition-colors hover:text-slate-400"
-              title="© 2026 PT. Rentalku Mobil Indonesia"
+              title={`© 2026 ${settings.companyName}`}
             >
               © 2026 {settings.companyName}. Seluruh hak cipta dilindungi undang-undang.
             </span>

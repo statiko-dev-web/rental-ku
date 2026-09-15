@@ -27,7 +27,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ settings }) => {
   return (
     <div className="w-full flex flex-col items-center">
       
-      {/* 1. TOP HERO SECTION (Mengapa Rental-ku? - Sesuai Screenshot 1) */}
+      {/* 1. TOP HERO SECTION (Mengapa Kerabat Rentcar?) */}
       <section className="w-full py-10 lg:py-16 bg-white border-b border-gray-100 font-inter">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -38,17 +38,20 @@ export const AboutView: React.FC<AboutViewProps> = ({ settings }) => {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight leading-[1.08]">
                   Mengapa <br />
                   <span className="inline-block border-b-4 border-[#E11D2A] pb-1 text-slate-900">
-                    Rental-ku?
+                    Kerabat Rentcar?
                   </span>
                 </h1>
               </div>
 
               <div className="space-y-4 text-sm text-slate-600 leading-relaxed max-w-xl font-normal">
                 <p>
-                  <strong className="text-slate-900 font-semibold">Rentalku Indonesia</strong> menawarkan transportasi rental mobil yang aman dan nyaman dengan pilihan kendaraan yang lengkap. Harga terjangkau namun tetap mengedepankan pelayanan serta kualitas, Kami memiliki tahapan dalam menjaga layanan yang ramah dan jujur pada Custumer, tentunya dengan driver profesional dan berpengalaman, karena setiap perjalanan memiliki makna berbeda bagi untuk setiap orang.
+                  <strong className="text-slate-900 font-semibold">Kerabat Rentcar Jambi</strong> di bawah naungan resmi <strong className="text-slate-900 font-semibold">{settings.companyName}</strong> menawarkan solusi transportasi rental mobil yang aman, legal, dan nyaman di Kota Jambi dengan pilihan armada terlengkap.
+                </p>
+                <p>
+                  Harga terjangkau dan transparan dengan mengedepankan integritas serta kualitas pelayanan prima. Kami siap melayani kebutuhan sewa mobil lepas kunci, paket mobil + driver berpengalaman, antar jemput Bandara Sultan Thaha Jambi, hingga operasional kantor dinas.
                 </p>
                 <p className="font-medium text-slate-800">
-                  Nikmati perjalanan darat kamu lebih nyaman bersama Rental-ku.
+                  Nikmati perjalanan darat kamu di Kota Jambi lebih aman dan berkelas bersama Kerabat Rentcar.
                 </p>
               </div>
 
@@ -96,37 +99,19 @@ export const AboutView: React.FC<AboutViewProps> = ({ settings }) => {
               </div>
             </div>
 
-            {/* Right Photo: Kantor / Armada Rental-ku */}
+            {/* Right Photo: Kantor / Armada Kerabat Rentcar */}
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-slate-900 max-w-md w-full aspect-[4/3] group">
                 <img
                   src="/about-us.webp"
-                  alt="Tentang Rental-ku Indonesia"
+                  alt="Tentang Kerabat Rentcar Jambi - PT. KERABAT BERSINAR ABADI"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                  width={800}
+                  height={600}
                 />
-
-                {/* Badge Overlay Elegan di Bawah Foto */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex items-center justify-between text-white">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md">
-                      <CarIcon className="w-4 h-4 text-slate-900" />
-                    </div>
-                    <div>
-                      <div className="font-extrabold text-xs tracking-tight text-white leading-none">
-                        Rental-<span className="text-[#E11D2A]">ku</span>
-                      </div>
-                      <span className="text-[10px] uppercase font-semibold tracking-wider text-slate-300">
-                        Armada & Kantor Resmi
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="text-[10px] font-bold bg-emerald-600/90 text-white px-3 py-1 rounded-full flex items-center gap-1 shadow-xs backdrop-blur-xs">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>Resmi & Terpercaya</span>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -138,7 +123,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ settings }) => {
       <section className="w-full py-8 bg-[#F8F9FA]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Selamat datang di <strong className="text-slate-900">Rentalku Indonesia</strong> dan tentukan berbagai pilihan kendaraan untuk mobilitas keseharianmu dengan menyewa mobil per jam, harian, mingguan, atau bahkan bulanan, semuanya menjadi mudah dengan <strong className="text-slate-900">Rentalku Indonesia</strong>. beberapa alasan menggunakan jasa Kami :
+            Selamat datang di <strong className="text-slate-900">Kerabat Rentcar Jambi</strong> ({settings.companyName}) dan tentukan berbagai pilihan kendaraan untuk mobilitas keseharianmu dengan menyewa mobil 12 jam, harian, mingguan, atau bahkan bulanan, semuanya menjadi mudah bersama <strong className="text-slate-900">Kerabat Rentcar</strong>. Beberapa alasan menggunakan jasa kami :
           </p>
         </div>
       </section>
@@ -302,7 +287,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ settings }) => {
             {/* Google Maps Responsive Embed */}
             <div className="lg:col-span-8 rounded-2xl overflow-hidden shadow-md border border-gray-200 min-h-[350px] lg:min-h-[400px] relative bg-gray-100">
               <iframe
-                title="Peta Lokasi Rentalku Indonesia"
+                title="Peta Lokasi Kerabat Rentcar Jambi"
                 src={cleanMapsUrl(settings.googleMapsEmbed)}
                 width="100%"
                 height="100%"

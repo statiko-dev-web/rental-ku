@@ -26,7 +26,7 @@ const SERVICE_TABS: ServiceTab[] = [
     title: 'Family Car',
     image: '/services/family-car-800x600.webp',
     desc1: 'Salah satu hal terbaik tentang melakukan perjalanan bersama keluarga adalah memiliki rental mobil keluarga yang dapat diandalkan. Hal ini tidak hanya memastikan bahwa setiap orang dapat melakukan perjalanan bersama, tetapi juga membuat perjalanan menjadi lebih menyenangkan. Ada banyak alasan mengapa mobil keluarga lebih baik untuk bepergian dari pada transportasi lainnya.',
-    desc2: 'Rental-ku adalah pilihan sempurna untuk perjalanan keluarga! Kami memiliki berbagai mobil keluarga untuk dipilih, sehingga Anda dapat menemukan yang sempurna untuk kebutuhan Anda. Mobil kami dapat diandalkan dan nyaman, dan kami menawarkan penawaran hebat untuk persewaan mobil keluarga.'
+    desc2: 'Kerabat Rentcar Jambi adalah pilihan sempurna untuk perjalanan keluarga! Kami memiliki berbagai pilihan mobil keluarga yang bersih, wangi, dan nyaman untuk menjelajahi Kota Jambi maupun luar kota dengan penawaran harga terbaik.'
   },
   {
     id: 'city',
@@ -34,7 +34,7 @@ const SERVICE_TABS: ServiceTab[] = [
     title: 'City Car',
     image: '/services/city-car-800x600.webp',
     desc1: 'Kami menyediakan layanan City Car untuk Anda membutuhkan kendaraan yang bisa digunakan untuk melewati jalan perkotaan yang padat atau macet, maka mobil city car bisa dipilih karena memiliki dimensi yang kecil, selain lebih nyaman dan efisien, untuk anda yg memiliki rencana kebeberapa titik tujuan dalam satu hari, Sewa Rental mobil memudahkan anda untuk berpergian dengan satu mobil yang sama.',
-    desc2: 'Rental-ku Indonesia adalah pilihan sempurna untuk persewaan mobil City Car! Kami memiliki berbagai mobil untuk dipilih, sehingga Anda dapat menemukan yang sempurna untuk kebutuhan Anda. Mobil kami dapat diandalkan dan nyaman, kami menawarkan Harga Sewa Rental Mobil yang sangat kompetitive dan hemat.'
+    desc2: 'Kerabat Rentcar Jambi adalah pilihan ideal untuk persewaan City Car lincah dan hemat bensin. Sangat pas untuk mobilitas harian di seputaran Kota Jambi dengan tarif sewa yang sangat bersahabat.'
   },
   {
     id: 'wedding',
@@ -42,7 +42,7 @@ const SERVICE_TABS: ServiceTab[] = [
     title: 'Wedding Car',
     image: '/services/wedding-car-800x600.webp',
     desc1: 'Pernikahan adalah sesuatu yang harus dihargai dan dicintai, karena itu adalah simbol cinta sejati dan pengabdian. Ini adalah hari yang dipenuhi dengan kebahagiaan, air mata kegembiraan, dan cinta yang akan bertahan seumur hidup. Jika Anda sedang mencari cara unik untuk membuat hari pernikahan Anda tak terlupakan, pertimbangkan untuk menyewa salah satu mobil kami yang luar biasa!',
-    desc2: 'Armada kami terdapat beragam pilihan mobil untuk Wedding Car. Kami akan menyediakan mobil yang sempurna untuk kebutuhan pernikahan Anda, dan kami akan mengurus semua detailnya sehingga Anda dapat bersantai dan menikmati hari istimewa Anda.'
+    desc2: 'Kerabat Rentcar Jambi menyediakan beragam pilihan mobil pengantin elegan seperti Fortuner, Pajero, dan Innova Reborn lengkap dengan driver berbusana rapi dan dekorasi pita menawan untuk hari istimewa Anda.'
   },
   {
     id: 'premium',
@@ -50,7 +50,7 @@ const SERVICE_TABS: ServiceTab[] = [
     title: 'Premium Car',
     image: '/services/premium-car-800x600.webp',
     desc1: 'Mobil-mobil Premium sering dianggap sebagai yang terbaik yang ditawarkan oleh Dealer2 mobil, dan dilengkapi dengan fitur-fitur yang tidak tersedia pada model lain. Seringkali, mobil-mobil ini ditujukan untuk keperluan mewah yang menginginkan yang terbaik dari yang terbaik.',
-    desc2: 'Rental-ku Indonesia adalah layanan sewa mobil premium terbaik. Anda dapat memilih dari berbagai mobil kelas atas yang sempurna untuk segala kesempatan. Baik Anda sedang mencari mobil premium mewah untuk dibawa dalam perjalanan akhir pekan, atau membutuhkan kendaraan yang lebih besar untuk liburan keluarga Anda. Pengemudi kami yang berpengalaman akan mengurus semuanya sehingga Anda dapat bersantai dan menikmati perjalanan Anda dengan mobil premium pilihan Anda.'
+    desc2: 'Kerabat Rentcar Jambi menghadirkan armada premium mewah bagi tamu VIP, pejabat instansi, atau perjalanan bisnis penting di Jambi. Driver kami yang berpengalaman dan santun siap mendampingi perjalanan Anda dengan standar layanan bintang lima.'
   },
   {
     id: 'pariwisata',
@@ -58,15 +58,15 @@ const SERVICE_TABS: ServiceTab[] = [
     title: 'Pariwisata',
     image: '/services/pariwisata-800x600.webp',
     desc1: 'Tidak diragukan lagi bahwa wisata memang menyenangkan, tetapi akan lebih menyenangkan lagi jika Anda melakukannya bersama keluarga. Anda tidak hanya dapat menghabiskan waktu berkualitas bersama, tetapi Anda juga dapat mengalami hal-hal baru dan menjelajahi tempat-tempat baru.',
-    desc2: 'Kami menyediakan mobil pariwisata yang tepat untuk rencana liburan keluarga Anda. Rental-ku Indonesia adalah layanan sewa mobil terbaik bagi wisatawan yang ingin menjelajahi kota baru tanpa khawatir mengemudi di area asing. Kami menawarkan pengemudi berpengalaman yang mengetahui daerah dengan baik, sehingga Anda dapat bersantai dan menikmati liburan Anda. Mobil kami juga tersedia dengan harga terjangkau, sehingga Anda dapat menghemat uang saat bepergian.'
+    desc2: 'Kami menyediakan armada pariwisata yang tepat untuk menjelajahi keindahan destinasi Jambi, mulai dari Kawasan Percandian Muaro Jambi, Danau Kerinci, Danau Sipin, hingga wisata alam lainnya bersama driver berpengalaman yang paham seluk-beluk rute Jambi.'
   },
   {
     id: 'perusahaan',
     name: 'Perusahaan',
     title: 'Perusahaan',
     image: '/services/perusahaan-800x600.webp',
-    desc1: 'Ketika Anda memulai bisnis, salah satu hal yang perlu Anda pertimbangkan adalah transportasi. Rental-ku Indonesia menawarkan berbagai pilihan mobil yang tersedia untuk disewakan. Kami menyediakan berbagai pilihan type kontrak untuk perusahaan, seperti Lepas kunci atau dengan Driver.',
-    desc2: 'Dengan memilih Sewa Rental Mobil untuk Perusahaan, anda terhindar dari biaya2 maintenance, karena biaya2 maintenance akan di tanggung oleh kami. Rental-ku Indonesia sendiri sudah berbasis PT, (PT. RENTALKU MOBIL INDONESIA). Kontrak Perusahaan yang harus berbasis PT bisa dengan tenang bekerja sama bersama kami.'
+    desc1: 'Ketika Anda memulai bisnis atau membutuhkan kendaraan dinas di Jambi, salah satu hal yang perlu Anda pertimbangkan adalah transportasi. Kerabat Rentcar menawarkan berbagai pilihan mobil yang tersedia untuk disewakan dengan kontrak bulanan maupun tahunan, baik lepas kunci maupun include driver.',
+    desc2: 'Dengan memilih Sewa Rental Mobil Perusahaan bersama Kerabat Rentcar, instansi Anda terhindar dari beban operasional perawatan mobil. Kerabat Rentcar resmi berbadan hukum PT. KERABAT BERSINAR ABADI, sehingga proses kontrak kerja sama dan administrasi faktur pajak sangat aman dan terpercaya.'
   },
   {
     id: 'event',
@@ -74,7 +74,7 @@ const SERVICE_TABS: ServiceTab[] = [
     title: 'Event Car',
     image: '/services/event-car-800x600.webp',
     desc1: 'Dalam menyelenggarakan acara, salah satu elemen terpenting adalah memastikan bahwa para tamu dapat pergi ke dan dari tempat tersebut tanpa masalah. Di sinilah layanan transportasi masuk, karena kami dapat membantu mempermudah proses bagi semua orang yang terlibat. Dengan menyediakan layanan antar-jemput atau mengatur transportasi, penyelenggara dapat memastikan bahwa para tamu tidak perlu khawatir untuk bepergian.',
-    desc2: 'Jika Anda sedang mencari layanan sewa mobil tanpa repot untuk event Anda berikutnya, tidak perlu mencari yang lain selain Rental-ku Indonesia! Kami menyediakan rental mobil yang dilengkapi dengan Driver yang Profesional, Plus harga kompetitif kami memudahkan anggaran untuk transportasi acara Anda.'
+    desc2: 'Jika Anda mencari layanan transportasi event di Jambi atau antar-jemput Bandara Sultan Thaha untuk rombongan delegasi, Kerabat Rentcar siap menyediakan armada terawat dengan koordinasi jadwal yang tepat waktu dan harga kompetitif.'
   }
 ];
 
@@ -114,7 +114,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ cars, settings, onVi
 
   const visibleCars = cars.slice(sliderIndex, sliderIndex + visibleCount);
 
-  const waBookingUrl = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(`Halo Rental-ku Indonesia, saya ingin menanyakan layanan ${activeTab.title}.`)}`;
+  const waBookingUrl = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(`Halo Kerabat Rentcar Jambi, saya ingin menanyakan layanan ${activeTab.title}.`)}`;
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -125,7 +125,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ cars, settings, onVi
           
           <div className="text-center max-w-3xl mx-auto mb-8 space-y-2">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Layanan Terbaik dari Kami Bersama Rentalku Indonesia
+              Layanan Terbaik dari Kami Bersama Kerabat Rentcar Jambi
             </h1>
             <div className="w-16 h-1 bg-[#E11D2A] mx-auto rounded-full" />
           </div>
@@ -244,7 +244,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ cars, settings, onVi
               Dalam & Luar Kota
             </p>
             <p className="text-xs sm:text-sm text-slate-500">
-              Kami menyediakan beberapa pilihan mobil untuk kebutuhan para customer Rentalku.
+              Kami menyediakan beberapa pilihan mobil prima untuk kebutuhan para pelanggan Kerabat Rentcar di Kota Jambi.
             </p>
           </div>
 

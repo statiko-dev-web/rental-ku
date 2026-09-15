@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Users, Cog, Luggage, CheckCircle2, MessageCircle, Shield, Info } from 'lucide-react';
+import { X, Users, Cog, CheckCircle2, MessageCircle, Shield, Info } from 'lucide-react';
 import { Car, SiteSettings } from '../types';
 
 interface CarDetailsModalProps {
@@ -58,7 +58,7 @@ export const CarDetailsModal: React.FC<CarDetailsModalProps> = ({ car, onClose, 
           </div>
 
           {/* Quick Specs Grid */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 gap-3">
             <div className="bg-slate-50 p-3 rounded-xl text-center border border-gray-100">
               <Users className="w-5 h-5 text-[#E11D2A] mx-auto mb-1" />
               <div className="text-[11px] text-slate-500 font-medium">Kapasitas</div>
@@ -69,12 +69,6 @@ export const CarDetailsModal: React.FC<CarDetailsModalProps> = ({ car, onClose, 
               <Cog className="w-5 h-5 text-[#E11D2A] mx-auto mb-1" />
               <div className="text-[11px] text-slate-500 font-medium">Transmisi</div>
               <div className="text-xs sm:text-sm font-bold text-slate-800">{car.transmission}</div>
-            </div>
-
-            <div className="bg-slate-50 p-3 rounded-xl text-center border border-gray-100">
-              <Luggage className="w-5 h-5 text-[#E11D2A] mx-auto mb-1" />
-              <div className="text-[11px] text-slate-500 font-medium">Bagasi</div>
-              <div className="text-xs sm:text-sm font-bold text-slate-800">{car.luggage}</div>
             </div>
           </div>
 

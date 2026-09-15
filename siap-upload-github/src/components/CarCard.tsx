@@ -39,10 +39,13 @@ export const CarCard: React.FC<CarCardProps> = ({ car, settings, onViewDetails }
       <div className="h-44 sm:h-48 w-full flex items-center justify-center overflow-hidden mb-3 pt-2">
         <img
           src={car.image}
-          alt={car.name}
+          alt={`Rental mobil ${car.name} Jambi`}
           className="max-h-full max-w-full object-contain img-zoom-hover drop-shadow-md rounded-lg"
           referrerPolicy="no-referrer"
           loading="lazy"
+          decoding="async"
+          width={400}
+          height={250}
         />
       </div>
 
@@ -82,6 +85,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car, settings, onViewDetails }
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Pesan sewa mobil ${car.name} via WhatsApp`}
           className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-full border border-gray-300 hover:border-[#25D366] bg-white text-slate-800 hover:text-[#25D366] font-bold text-xs tracking-tight shadow-xs hover:shadow-sm active:scale-[0.97] transition-all group/btn"
         >
           <span>Pesan sekarang</span>
@@ -92,6 +96,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car, settings, onViewDetails }
         <button
           id={`car-details-btn-${car.id}`}
           onClick={() => onViewDetails(car)}
+          aria-label={`Lihat spesifikasi dan detail mobil ${car.name}`}
           className="inline-flex items-center justify-center gap-1 text-xs font-semibold text-slate-600 hover:text-[#E11D2A] transition-colors py-1 cursor-pointer"
         >
           <span>Car Details</span>

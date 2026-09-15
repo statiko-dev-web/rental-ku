@@ -175,10 +175,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
         {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img
-            src={settings.heroImage || "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&auto=format&fit=crop&q=85"}
-            alt="Hero Background Rentalku Indonesia"
+            src={settings.heroImage || "/hero.webp"}
+            alt="Hero Background Kerabat Rentcar Jambi"
             className="w-full h-full object-cover object-[75%_center] lg:object-[80%_center]"
             referrerPolicy="no-referrer"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            width={1920}
+            height={1080}
           />
 
           {/* GRADASI DESKTOP:
@@ -207,11 +212,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
           <div className="max-w-xl lg:max-w-2xl space-y-6 text-left">
             <div className="space-y-3">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-[1.08] drop-shadow-sm">
-                Sewa Rental Mobil? <br />
-                <span className="text-white">Ya Di Rentalku Aja!</span>
+                Sewa Rental Mobil di Jambi? <br />
+                <span className="text-white">Ya Di Kerabat Rentcar Aja!</span>
               </h1>
               <p className="text-base sm:text-lg text-white/90 font-light max-w-lg leading-relaxed drop-shadow-xs">
-                Nikmati Perjalananmu Bersama Rentalku Indonesia
+                Nikmati Perjalananmu di Kota Jambi Bersama Kerabat Rentcar
               </p>
             </div>
 
@@ -274,7 +279,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
               Dalam & Luar Kota
             </p>
             <p className="text-xs sm:text-sm text-slate-500">
-              Kami menyediakan beberapa pilihan mobil untuk kebutuhan para customer Rentalku.
+              Kami menyediakan beberapa pilihan mobil prima untuk kebutuhan para pelanggan Kerabat Rentcar di Kota Jambi dan sekitarnya.
             </p>
           </div>
 
@@ -388,7 +393,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
         </div>
       </section>
 
-      {/* 3. SECTION: MENGAPA RENTAL-KU? + VISI MISI MARQUEE EFFECT */}
+      {/* 3. SECTION: MENGAPA KERABAT RENTCAR? + VISI MISI MARQUEE EFFECT */}
       <section className="w-full py-12 lg:py-16 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           
@@ -399,19 +404,19 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
               <div className="inline-block">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-inter font-semibold text-slate-900 tracking-tight leading-[1.15]">
                   Mengapa <br />
-                  <span className="text-slate-950 border-b-4 border-[#E11D2A] pb-1">Rental-ku?</span>
+                  <span className="text-slate-950 border-b-4 border-[#E11D2A] pb-1">Kerabat Rentcar?</span>
                 </h2>
               </div>
 
               <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed pt-2">
                 <p>
-                  <strong className="text-slate-900 font-bold">Rentalku Indonesia</strong> menawarkan transportasi rental mobil yang aman dan nyaman dengan pilihan kendaraan yang lengkap. Harga terjangkau namun tetap mengedepankan pelayanan serta kualitas.
+                  <strong className="text-slate-900 font-bold">Kerabat Rentcar Jambi</strong> (di bawah naungan resmi <strong className="text-slate-900 font-bold">PT. KERABAT BERSINAR ABADI</strong>) menawarkan transportasi rental mobil yang aman, legal, dan nyaman dengan pilihan kendaraan terlengkap di Kota Jambi.
                 </p>
                 <p>
-                  Kami memiliki tahapan dalam menjaga layanan yang ramah dan jujur pada Customer, tentunya dengan driver profesional dan berpengalaman, karena setiap perjalanan memiliki makna berbeda bagi untuk setiap orang.
+                  Harga sewa terjangkau dan transparan tanpa biaya tersembunyi. Layanan ramah dan profesional, siap lepas kunci maupun dengan driver berpengalaman yang menguasai seluruh rute Kota Jambi, antar-jemput Bandara Sultan Thaha, hingga perjalanan dinas luar kota.
                 </p>
                 <p className="font-semibold text-slate-800">
-                  Nikmati perjalanan darat kamu lebih nyaman bersama Rental-ku.
+                  Nikmati perjalanan darat kamu di Jambi lebih nyaman dan tenang bersama Kerabat Rentcar.
                 </p>
               </div>
 
@@ -426,37 +431,19 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
               </div>
             </div>
 
-            {/* Right Photo: Kantor / Armada Rental-ku */}
+            {/* Right Photo: Kantor / Armada Kerabat Rentcar */}
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-slate-900 max-w-md w-full aspect-[4/3] group">
                 <img
                   src="/about-us.webp"
-                  alt="Kantor dan Armada Rental-ku Indonesia"
+                  alt="Kantor dan Armada Resmi Kerabat Rentcar Jambi"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                  width={800}
+                  height={600}
                 />
-
-                {/* Badge Overlay Elegan di Bawah Foto */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex items-center justify-between text-white">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md">
-                      <CarIcon className="w-4 h-4 text-slate-900" />
-                    </div>
-                    <div>
-                      <div className="font-extrabold text-xs tracking-tight text-white leading-none">
-                        Rental-<span className="text-[#E11D2A]">ku</span>
-                      </div>
-                      <span className="text-[10px] uppercase font-semibold tracking-wider text-slate-300">
-                        Armada & Kantor Resmi
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="text-[10px] font-bold bg-emerald-600/90 text-white px-3 py-1 rounded-full flex items-center gap-1 shadow-xs backdrop-blur-xs">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>Resmi & Terpercaya</span>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -647,17 +634,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
         </div>
       </section>
 
-      {/* 5. SECTION: KATA PENGGUNA RENTALKU (Screenshot 4 Bottom) */}
+      {/* 5. SECTION: KATA PELANGGAN KERABAT RENTCAR */}
       <section className="w-full py-12 lg:py-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-inter font-semibold text-slate-900 tracking-tight">
-              Kata Pengguna Rentalku
+              Kata Pelanggan Kerabat Rentcar
             </h2>
             <div className="w-14 h-1 bg-[#E11D2A] mx-auto rounded-full" />
             <p className="text-xs sm:text-sm text-slate-500 pt-1">
-              Kami selalu memberikan pelayanan terbaik, sehingga Customer selalu nyaman menggunakan jasa Kami. Beberapa contoh feedback yang sangat positif dari Customer kita :
+              Kami selalu memberikan pelayanan terbaik, sehingga pelanggan selalu nyaman menggunakan jasa Kami di Kota Jambi.
             </p>
           </div>
 
@@ -665,12 +652,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
             
             <div className="bg-gray-50/80 rounded-2xl p-6 border border-gray-100 flex flex-col justify-between space-y-4">
               <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
-                "Terima Kasih Rentalku Indonesia sudah mengantarkan kami ibu-ibu pengajian ke luar kota dengan selamat. Mobilnya Toyota Hiace bersih wangi, supirnya mas Doni sopan dan sabar sekali."
+                "Terima Kasih Kerabat Rentcar Jambi sudah mengantarkan rombongan kami berwisata ke Candi Muaro Jambi dengan selamat. Mobilnya Innova Reborn bersih wangi, supirnya mas Doni sopan dan sabar sekali."
               </p>
               <div className="pt-2 border-t border-gray-200/60 flex items-center justify-between">
                 <div>
                   <div className="font-bold text-xs text-slate-900">Ibu Hj. Rosdiana</div>
-                  <div className="text-[11px] text-slate-500">Sewa Toyota Hiace (Wisata)</div>
+                  <div className="text-[11px] text-slate-500">Sewa Innova Reborn (Wisata Jambi)</div>
                 </div>
                 <div className="text-amber-400 text-xs">★★★★★</div>
               </div>
@@ -678,12 +665,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
 
             <div className="bg-gray-50/80 rounded-2xl p-6 border border-gray-100 flex flex-col justify-between space-y-4">
               <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
-                "Suka banget dengan Rentalku Indonesia, Next kalau ke Jakarta lagi pasti sewa di sini lagi. Proses lepas kuncinya simpel, unit Grand Innova-nya tarikannya mantap dan bensin irit."
+                "Suka banget dengan Kerabat Rentcar Jambi, next kalau ada dinas kantor ke Jambi lagi pasti sewa di sini lagi. Proses lepas kunci simpel dan legalitas PT jelas, unitnya terawat dan bensin irit."
               </p>
               <div className="pt-2 border-t border-gray-200/60 flex items-center justify-between">
                 <div>
                   <div className="font-bold text-xs text-slate-900">Dimas Pratama</div>
-                  <div className="text-[11px] text-slate-500">Sewa Grand Innova (Lepas Kunci)</div>
+                  <div className="text-[11px] text-slate-500">Sewa Avanza Facelift (Dinas Jambi)</div>
                 </div>
                 <div className="text-amber-400 text-xs">★★★★★</div>
               </div>
@@ -691,12 +678,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ cars, settings, setCurrentPa
 
             <div className="bg-gray-50/80 rounded-2xl p-6 border border-gray-100 flex flex-col justify-between space-y-4">
               <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
-                "Terima Kasih mbak Event PMWS Toyota berjalan lancar, armada Fortuner dan Elf datang tepat waktu 30 menit sebelum jadwal penjemputan delegasi di bandara. Very recommended!"
+                "Penjemputan delegasi di Bandara Sultan Thaha Jambi berjalan tepat waktu. Armada Pajero Dakar datang bersih mengkilap, drivernya profesional dan ramah. Sangat direkomendasikan!"
               </p>
               <div className="pt-2 border-t border-gray-200/60 flex items-center justify-between">
                 <div>
                   <div className="font-bold text-xs text-slate-900">Sarah Anggraini</div>
-                  <div className="text-[11px] text-slate-500">Event Organizer / Airport Transfer</div>
+                  <div className="text-[11px] text-slate-500">Airport Transfer Sultan Thaha VIP</div>
                 </div>
                 <div className="text-amber-400 text-xs">★★★★★</div>
               </div>

@@ -151,7 +151,7 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
       priceMonthly: 'Rp 8.000.000',
       seats: 7,
       transmission: 'Matic & Manual',
-      luggage: '3 Koper',
+      luggage: '',
       status: 'available',
       featured: true,
       notes: 'Unit terawat, wangi dan bersih siap jalan.',
@@ -257,17 +257,14 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
         {/* Top bar */}
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between pb-6 border-b border-slate-800/80">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-slate-900">
-              <CarIcon className="w-5 h-5 text-slate-900" />
-            </div>
-            <div>
-              <div className="font-extrabold text-xl tracking-tight text-white">
-                Rental-<span className="text-[#E11D2A]">ku</span>
-              </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">
-                Dashboard Administrator
-              </span>
-            </div>
+            <img
+              src="/logo/logo-footer.svg"
+              alt="Kerabat Rentcar Logo"
+              className="h-10 sm:h-12 w-auto object-contain"
+            />
+            <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 pl-2 border-l border-slate-700">
+              Dashboard Administrator
+            </span>
           </div>
 
           <button
@@ -287,7 +284,7 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
             </div>
             <h2 className="text-2xl font-bold text-white tracking-tight">Login Portal Admin</h2>
             <p className="text-xs text-slate-400">
-              Kelola ketersediaan armada mobil, banner, dan pengaturan kontak Rental-ku.
+              Kelola ketersediaan armada mobil, banner, dan pengaturan kontak Kerabat Rentcar Jambi.
             </p>
           </div>
 
@@ -371,17 +368,14 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
               className="flex items-center gap-2.5 group text-left cursor-pointer focus:outline-none"
               title="Klik untuk ke Beranda"
             >
-              <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center border-2 border-slate-900 shadow-sm transition-transform group-hover:scale-105">
-                <CarIcon className="w-5 h-5 text-slate-900" />
-              </div>
-              <div>
-                <div className="font-extrabold text-xl tracking-tight text-white leading-none">
-                  Rental-<span className="text-[#E11D2A]">ku</span>
-                </div>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">
-                  CMS Administrator
-                </span>
-              </div>
+              <img
+                src="/logo/logo-footer.svg"
+                alt="Kerabat Rentcar Logo"
+                className="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105"
+              />
+              <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 pl-2 border-l border-slate-700">
+                CMS Administrator
+              </span>
             </button>
 
             <span className="hidden sm:inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -780,7 +774,7 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
                     </div>
 
                     {/* Specs & Status */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <div>
                         <label className="block text-xs font-semibold text-slate-300 mb-1">
                           Kursi Penumpang
@@ -805,20 +799,6 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
                           value={editingCar.transmission}
                           onChange={(e) => setEditingCar({ ...editingCar, transmission: e.target.value })}
                           placeholder="Matic & Manual"
-                          className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white focus:ring-2 focus:ring-[#E11D2A] focus:outline-none"
-                          required
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1">
-                          Kapasitas Bagasi
-                        </label>
-                        <input
-                          type="text"
-                          value={editingCar.luggage}
-                          onChange={(e) => setEditingCar({ ...editingCar, luggage: e.target.value })}
-                          placeholder="3 Koper Besar"
                           className="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white focus:ring-2 focus:ring-[#E11D2A] focus:outline-none"
                           required
                         />
@@ -1146,11 +1126,11 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
                       />
                       <div className="absolute inset-y-0 left-6 flex flex-col justify-center max-w-sm pointer-events-none space-y-1">
                         <span className="text-white text-lg sm:text-xl font-bold leading-tight">
-                          Sewa Rental Mobil? <br />
-                          <span className="text-white">Ya Di Rentalku Aja!</span>
+                          Sewa Rental Mobil di Jambi? <br />
+                          <span className="text-white">Ya Di Kerabat Rentcar Aja!</span>
                         </span>
                         <span className="text-white/80 text-xs">
-                          Nikmati Perjalananmu Bersama Rentalku Indonesia
+                          Nikmati Perjalananmu di Kota Jambi Bersama Kerabat Rentcar
                         </span>
                         <div className="pt-2">
                           <span className="inline-block px-3 py-1 rounded-full bg-white text-slate-900 border-2 border-[#E11D2A] text-[10px] font-bold">
@@ -1234,11 +1214,11 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
                       />
                       <div className="absolute inset-y-0 left-6 flex flex-col justify-center max-w-sm pointer-events-none space-y-1">
                         <span className="text-white text-lg sm:text-xl font-bold leading-tight">
-                          Sewa Rental Mobil? <br />
-                          <span className="text-white">Ya Di Rentalku Aja!</span>
+                          Sewa Rental Mobil di Jambi? <br />
+                          <span className="text-white">Ya Di Kerabat Rentcar Aja!</span>
                         </span>
                         <span className="text-white/80 text-xs">
-                          Berbagai Pilihan Mobil Untuk Kebutuhan mu
+                          Berbagai Pilihan Armada Mobil Prima Untuk Kebutuhan Perjalananmu di Jambi
                         </span>
                         <div className="pt-2">
                           <span className="inline-block px-3 py-1 rounded-full bg-white text-slate-900 border-2 border-[#E11D2A] text-[10px] font-bold">
@@ -1383,7 +1363,7 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
                 rows={3}
                 value={formSettings.waMessageTemplate}
                 onChange={(e) => setFormSettings({ ...formSettings, waMessageTemplate: e.target.value })}
-                placeholder="Halo Rental-ku Indonesia, saya ingin menyewa mobil {mobil}. Mohon info ketersediaannya..."
+                placeholder="Halo Kerabat Rentcar Jambi, saya ingin menyewa mobil {mobil}. Mohon info ketersediaannya..."
                 className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white focus:ring-2 focus:ring-[#E11D2A] focus:outline-none"
               />
               <span className="text-[11px] text-slate-400 mt-1 block">
@@ -1682,7 +1662,7 @@ export const CmsDashboardView: React.FC<CmsDashboardViewProps> = ({
       {/* FOOTER BAR OF CMS */}
       <footer className="border-t border-slate-800/80 bg-[#12151D] py-4 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
-          <span>Rental-ku Dashboard • Pengelolaan Armada & Sistem Rental Mobil</span>
+          <span>Kerabat Rentcar Dashboard • Pengelolaan Armada & Sistem Rental Mobil Jambi</span>
           <div className="flex items-center gap-4">
             <button
               onClick={() => setCurrentPage('home')}

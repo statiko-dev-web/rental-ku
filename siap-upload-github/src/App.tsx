@@ -215,7 +215,7 @@ export default function App() {
       <aside aria-label="WhatsApp Hotline Chat" className="fixed bottom-6 right-6 z-40">
         <a
           id="floating-whatsapp-btn"
-          href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Halo Rental-ku Indonesia, saya ingin berkonsultasi sewa rental mobil.')}`}
+          href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Halo Kerabat Rentcar Jambi, saya ingin berkonsultasi sewa rental mobil.')}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2.5 bg-[#E11D2A] hover:bg-[#c41521] text-white px-4 py-3 rounded-full animate-pulse-subtle hover:scale-105 active:scale-95 transition-transform duration-200 group border border-white/20"

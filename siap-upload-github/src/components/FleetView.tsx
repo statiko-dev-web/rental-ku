@@ -20,10 +20,15 @@ export const FleetView: React.FC<FleetViewProps> = ({ cars, settings, onViewDeta
         {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img
-            src={settings.fleetHeroImage || "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=1920&auto=format&fit=crop&q=85"}
-            alt="Armada Mobil Rental-ku Indonesia"
+            src={settings.fleetHeroImage || "/hero-fleet.webp"}
+            alt="Armada Mobil Kerabat Rentcar Jambi"
             className="w-full h-full object-cover object-[75%_center] lg:object-[80%_center]"
             referrerPolicy="no-referrer"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            width={1920}
+            height={1080}
           />
 
           {/* GRADASI DESKTOP:
@@ -52,11 +57,11 @@ export const FleetView: React.FC<FleetViewProps> = ({ cars, settings, onViewDeta
           <div className="max-w-xl lg:max-w-2xl space-y-6 text-left">
             <div className="space-y-3">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-[1.08] drop-shadow-sm">
-                Sewa Rental Mobil? <br />
-                <span className="text-white">Ya Di Rentalku Aja!</span>
+                Sewa Rental Mobil di Jambi? <br />
+                <span className="text-white">Ya Di Kerabat Rentcar Aja!</span>
               </h1>
               <p className="text-base sm:text-lg text-white/90 font-light max-w-lg leading-relaxed drop-shadow-xs">
-                Berbagai Pilihan Mobil Untuk Kebutuhan mu
+                Berbagai Pilihan Armada Mobil Prima Untuk Kebutuhan Perjalananmu di Jambi
               </p>
             </div>
 
@@ -119,7 +124,7 @@ export const FleetView: React.FC<FleetViewProps> = ({ cars, settings, onViewDeta
               Dalam & Luar Kota
             </p>
             <p className="text-xs sm:text-sm text-slate-500">
-              Kami menyediakan beberapa pilihan mobil untuk kebutuhan para customer Rentalku.
+              Kami menyediakan beberapa pilihan mobil prima untuk kebutuhan para pelanggan Kerabat Rentcar di Kota Jambi dan sekitarnya.
             </p>
           </div>
 

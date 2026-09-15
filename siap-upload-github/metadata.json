@@ -1,0 +1,6 @@
+{
+  "name": "Kerabat Rentcar Jambi",
+  "description": "Website rental mobil resmi PT. KERABAT BERSINAR ABADI di Kota Jambi dengan pilihan armada lengkap, tarif transparan, dan layanan profesional.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
